@@ -1,5 +1,10 @@
 import { Inter } from 'next/font/google'
+import Head from 'next/head';
+import Script from 'next/script';
 import './globals.css'
+import './css/bootstrap.min.css'
+import './css/style.css'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -11,7 +16,42 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <Head>
+        <title>One Ring Rentals - Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <Script
+        src="js/common/modernizr.js"
+        />
+      </Head>
+      <body className={inter.className}>{children}
+      <Script
+          src="js/common.js"
+        />
+        <Script
+          src="js/common/jquery-1.11.1.min.js"
+        />
+        <Script
+          src="js/common/bootstrap.min.js"
+        />
+        <Script
+          src="js/common/bootstrap-datepicker.js"
+        />
+        <Script
+          src="js/common/chosen.min.js"
+        />
+        <Script
+          src="js/common/bootstrap-checkbox.js"
+        />
+        <Script
+          src="js/common/nice-scroll.js"
+        />
+        <Script
+          src="js/common/jquery-browser.js"
+        />
+        <Script
+          src="js/scripts.js"
+        />
+      </body>
     </html>
   )
 }
