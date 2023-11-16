@@ -2,7 +2,7 @@
 
 function Details(props) {
     return (
-        <a href="properties-detail.html">
+        <a href={'properties/'+props.slug}>
             <h3>{props.title}</h3>
             <span className="location">{props.location}</span>
         </a>
@@ -11,7 +11,7 @@ function Details(props) {
 function Image(props) {
     return (
         <div className="image">
-            <Details title={props.title} location={props.location} />
+            <Details slug={props.slug} title={props.title} location={props.location} />
             <img src={props.imgSrc} alt="" />
         </div>
     )
@@ -35,7 +35,7 @@ function Amenities(props) {
 function Property(props) {
     return (
         <div className="item col-md-4">
-            <Image imgSrc={props.imgSrc} title={props.title} location={props.location} />
+            <Image slug={props.slug} imgSrc={props.imgSrc} title={props.title} location={props.location} />
             <Price currency={props.currency} price={props.price} frequency={props.frequency} />
             <Amenities bedrooms={props.bedrooms} bathrooms={props.bathrooms} />
         </div>
@@ -44,7 +44,7 @@ function Property(props) {
 export default function FeatProperties(props) {
     return (
         props.properties.map((property) => (
-            <Property key={property.id} imgSrc={property.imgSrc} title={property.title} location={property.location}
+            <Property key={property.id} slug={property.slug} imgSrc={property.imgSrc} title={property.title} location={property.location}
                 currency={property.currency} price={property.price} frequency={property.frequency}
                 bedrooms={property.bedrooms} bathrooms={property.bathrooms} />
         ))
